@@ -11,24 +11,28 @@
   %body
     = yield
 
-  %h1 How well do you know your party?
+    %h1 How well do you know your party?
 
-  = form_tag check_promises_path, method: :post, id:"promises" do
-    
-    .column
-      %h2 Labour
-      %ul#labour.sortable
-    
-    .column
-      %h2 Conservatives
-      %ul#conservative.sortable
+    = form_tag check_promises_path, method: :post, id:"promises" do
+      
+      .column
+        %h2 Labour
+        %ul#labour.sortable
+      
+      .column
+        %h2 Conservatives
+        %ul#conservative.sortable
 
-    .column
-      %h2 Liberal Democrats
-      %ul#liberal_democrats.sortable
+      .column
+        %h2 Liberal Democrats
+        %ul#liberal_democrats.sortable
 
-    .column
-      %h2 Green
-      %ul#green.sortable
+      .column
+        %h2 Green
+        %ul#green.sortable
 
-    = submit_tag "Check your knowledge"
+      = submit_tag "Check your knowledge"
+
+    %footer
+      &copy; 2015. A hack made a 5am
+      = link_to "Github", "https://github.com/alexpchin/doyouknowyourparty"
