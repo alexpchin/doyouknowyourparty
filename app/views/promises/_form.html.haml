@@ -1,0 +1,19 @@
+= form_for(@promise) do |f|
+  - if @promise.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@promise.errors.count, "error")
+        prohibited this promise from being saved:
+      %ul
+        - @promise.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :party_id
+    %br/
+    = f.text_field :party_id
+  .field
+    = f.label :content
+    %br/
+    = f.text_area :content
+  .actions
+    = f.submit
