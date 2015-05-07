@@ -32,9 +32,19 @@ PromisesApp.labelInputs = function(){
 
 PromisesApp.displayScores = function(scores) {
   var $titles = $('h2');
+  var totalScore = 0;
+  var totalAmount = 0;
+  
   $.each($titles, function(i, title) {
     $(title).text(scores[i].party + " " + scores[i].score + "/" + scores[i].total)
   });
+
+  $.each(scores, function(i, score) {
+    totalScore += score.score;
+    totalAmount += score.total;
+  })
+  
+  $('h1').append('<h1>'+totalScore+'/'+totalAmount+'</h1>');
 }
 
 PromisesApp.checkPromises = function() {
