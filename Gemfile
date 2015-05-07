@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'active_model_serializers', '0.9.3'
 gem 'haml-rails', '0.9.0'
 gem 'rails', '4.2.1'
 gem 'pg', '0.18.1'
@@ -14,6 +15,5 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'bullet', '4.14.6'
 end
 

@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+form {
+  overflow: hidden;
+
+  .column {
+    float: left;
+    width: 25%;
+
+    ul {
+      width: 100%;
+      list-style-type: none;
+      margin: 0;
+      padding: 15px;
+     }
+
+    li {
+      border: 1px solid #eee;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: block;
+    }
+  }
+
+  input {
+    display: block;
+    clear: both;
+    margin: 0 auto;
+  }
+}

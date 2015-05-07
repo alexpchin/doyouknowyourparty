@@ -13,3 +13,38 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+var PromisesApp = PromisesApp || {};
+
+PromisesApp.sortable = function() {
+  $('ul').sortable({
+    connectWith: ".sortable"
+  }).disableSelection();
+}
+
+PromisesApp.displayPromises = function(promises) {
+  var $ul   = $('ul');
+  var count = 0;
+  $.each(promises, function(i, promise){
+    $($ul[count]).append("<li>"+promise.content+"</li>");
+    count++
+    if(count>=5){count=0};
+  });
+}
+
+PromisesApp.getPromises = function() {
+  $.ajax({
+    url: "/promises.json",
+    type: "GET",
+    data: "json"
+  }).done(function(data){
+    PromisesApp.displayPromises(data);
+  });
+}
+
+PromisesApp.initialize = function() {
+  PromisesApp.sortable();
+  PromisesApp.getPromises();
+}
+
+$(PromisesApp.initialize);
