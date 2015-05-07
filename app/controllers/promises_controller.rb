@@ -10,4 +10,9 @@ class PromisesController < ApplicationController
     end
   end
 
+  def check
+    @scores = Promise.generate_answers(params[:promises])
+    render json: @scores, root: false
+  end
+
 end

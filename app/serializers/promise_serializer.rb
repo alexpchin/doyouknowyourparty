@@ -1,3 +1,3 @@
 class PromiseSerializer < ActiveModel::Serializer
-  attributes :content
+  attributes :id, :content
 end

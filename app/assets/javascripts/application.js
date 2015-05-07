@@ -22,11 +22,45 @@ PromisesApp.sortable = function() {
   }).disableSelection();
 }
 
+PromisesApp.labelInputs = function(){
+  var $inputs = $('input');
+  $.each($inputs, function(i, input){
+    var $ul = $(input).parents('ul');
+    $(input).attr('name', 'promises['+$ul.attr("id")+']['+i+']');
+  })
+}
+
+PromisesApp.displayScores = function(scores) {
+  var $titles = $('h2');
+  $.each($titles, function(i, title) {
+    $(title).text(scores[i].party + " " + scores[i].score + "/" + scores[i].total)
+  });
+}
+
+PromisesApp.checkPromises = function() {
+  $('form').on('submit', function(){
+    event.preventDefault();
+    PromisesApp.labelInputs();
+    var data = $(this).serialize();
+
+    $.ajax({
+      url: "/promises/check",
+      type: "post",
+      dataType: "json",
+      data: data,
+    }).done(function(data){
+      PromisesApp.displayScores(data);
+    })
+  });
+}
+
 PromisesApp.displayPromises = function(promises) {
   var $ul   = $('ul');
   var count = 0;
+  // Same order as in view
+  var parties = ["labour", "conservatives", "liberal_democrats", "green"];
   $.each(promises, function(i, promise){
-    $($ul[count]).append("<li>"+promise.content+"</li>");
+    $($ul[count]).append("<li><label>"+promise.content+"</label><input type='hidden' name='promises' value='"+promise.id+"'></li>");
     count++
     if(count>=5){count=0};
   });
@@ -45,6 +79,11 @@ PromisesApp.getPromises = function() {
 PromisesApp.initialize = function() {
   PromisesApp.sortable();
   PromisesApp.getPromises();
+  PromisesApp.checkPromises();
 }
 
-$(PromisesApp.initialize);
+$(function(){
+  if ($('ul').length > 0) {
+    PromisesApp.initialize();
+  }
+});

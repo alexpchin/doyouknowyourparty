@@ -28,7 +28,14 @@ form {
     }
   }
 
-  input {
+  input[type="text"] {
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  input[type="submit"] {
     display: block;
     clear: both;
     margin: 0 auto;
