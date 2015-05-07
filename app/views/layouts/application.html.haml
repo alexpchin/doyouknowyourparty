@@ -3,6 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Doyouknowyourparty
+    %link{:href => "http://fonts.googleapis.com/css?family=Vollkorn:700italic,400", :rel => "stylesheet", :type => "text/css"}/
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     %script{:src => "//code.jquery.com/ui/1.11.4/jquery-ui.js"}
@@ -30,4 +31,4 @@
       %h2 Green
       %ul#green.sortable
 
-    = submit_tag "Guess"
+    = submit_tag "Check your knowledge"

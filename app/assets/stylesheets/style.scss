@@ -1,9 +1,26 @@
+$blue: #01d7f8;
+$orange: #ff6733;
+$white: #fff;
+$black: #222;
+$font-family: 'Vollkorn', serif;
+
 * {
   box-sizing: border-box;
 }
 
 body {
   text-align: center;
+  background-color: $blue;
+  font-family: $font-family;
+  line-height: 1.5;
+
+  h1 {
+    color: $orange;
+  }
+
+  h2 {
+    color: $black;
+  }
 }
 
 form {
@@ -21,7 +38,8 @@ form {
      }
 
     li {
-      border: 1px solid #eee;
+      background: $white;
+      color: $orange;
       padding: 15px;
       margin-bottom: 15px;
       display: block;
@@ -39,5 +57,10 @@ form {
     display: block;
     clear: both;
     margin: 0 auto;
+    padding: 20px 40px;
+    background: $orange;
+    color: $white;
+    border: 0;
+    font-size: 1rem;
   }
 }
