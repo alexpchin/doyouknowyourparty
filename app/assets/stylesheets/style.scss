@@ -20,7 +20,23 @@ body {
 
   h2 {
     color: $black;
+    line-height: 1;
   }
+
+  a { 
+    color: $orange;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  margin: 20px 0;
+  color: $white;
 }
 
 form {
